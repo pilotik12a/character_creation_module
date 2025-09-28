@@ -44,10 +44,17 @@ def start_training(char_name, char_class):
           'defence — чтобы блокировать атаку противника или '
           'special — чтобы использовать свою суперсилу.')
     print('Если не хочешь тренироваться, введи команду skip.')
+    cmd = None
     while cmd != 'skip':
+        cmd = input('Введи команду: ')
+        if cmd == 'attack':
+            print(attack(char_name, char_class))
         if cmd == 'defence':
             print(defence(char_name, char_class))
         if cmd == 'special':
+            print(special(char_name, char_class))
+    return 'Тренировка окончена.'
+
 
 def choice_char_class():
     approve_choice = None
@@ -70,6 +77,9 @@ def choice_char_class():
                                'чтобы выбрать другого персонажа ').lower()
     return char_class
 
+
+def main():
+    print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name = input('...назови себя: ')
     print(f'Здравствуй, {char_name}! '
@@ -78,14 +88,3 @@ def choice_char_class():
     print('Воитель, Маг, Лекарь')
     char_class = choice_char_class()
     print(start_training(char_name, char_class))
-
-def main():
-    print('Приветствую тебя, искатель приключений!')
-            print(special(char_name, char_class))
-    return 'Тренировка окончена.'
-
-        cmd = input('Введи команду: ')
-        if cmd == 'attack':
-            print(attack(char_name, char_class))
-
-
